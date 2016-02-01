@@ -49,6 +49,9 @@ function attachNavigationEvents(element, callback) {
         });
 
         element.addEventListener("MSWebViewNavigationCompleted", function (e) {
+            if (e.uri === 'https://www.facebook.com/dialog/return/close?#_=_') {
+                IAB.close();
+            }
             callback({ type: e.isSuccess ? "loadstop" : "loaderror", url: e.uri}, {keepCallback: true});
         });
 
