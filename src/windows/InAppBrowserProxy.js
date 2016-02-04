@@ -62,7 +62,7 @@ function attachNavigationEvents(element, callback) {
         });
 
         element.addEventListener("MSWebViewContentLoading", function (e) {
-            if (navigationButtonsDiv) {
+            if (navigationButtonsDiv && popup) {
                 if (popup.canGoBack) {
                     backButton.removeAttribute("disabled");
                 } else {
